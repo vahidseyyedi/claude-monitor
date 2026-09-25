@@ -2,6 +2,8 @@ EN | [FA](./README.md)
 
 # Claude Monitor
 
+![](./assets/claude_monitor_banner.jpg)
+
 A local dashboard for tracking usage of multiple free-tier Claude (claude.ai) accounts in one place. The project has two parts:
 
 1. **Browser extension (Chrome/Chromium/Edge)** — runs inside your open `claude.ai` tabs, reads the 5-hour session and weekly usage percentages, and reports them to a local server.
