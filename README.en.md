@@ -1,8 +1,8 @@
+![](./assets/claude_monitor_banner.jpg)
+
 EN | [FA](./README.md) 
 
 # Claude Monitor
-
-![](./assets/claude_monitor_banner.jpg)
 
 A local dashboard for tracking usage of multiple free-tier Claude (claude.ai) accounts in one place. The project has two parts:
 
@@ -32,6 +32,10 @@ No data ever leaves your machine — everything is fully local.
 - At least one claude.ai account you're logged into in the browser.
 
 ---
+
+![](./assets/Screenshot_01.png)
+
+![](./assets/Screenshot_01.png)
 
 ## Installation — Step by Step
 

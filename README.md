@@ -1,7 +1,7 @@
+![](./assets/claude_monitor_banner.jpg)
+
 [EN](./README.en.md) | FA
 # کلاد مانیتور (Claude Monitor)
-
-![](./assets/claude_monitor_banner.jpg)
 
 ابزاری محلی (Local) برای رصد وضعیت مصرف چند اکانت رایگان Claude (claude.ai) در یک داشبورد واحد. این پروژه از دو بخش تشکیل شده:
 
