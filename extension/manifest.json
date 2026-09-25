@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Claude Multi-Account Monitor",
+  "version": "1.0.0",
+  "description": "Watches claude.ai tabs for usage-limit status and last activity, and reports them to a local monitor server.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+    "https://claude.ai/*",
+    "http://localhost:8765/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://claude.ai/*"],
+      "js": ["injected-sse-watcher.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://claude.ai/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
