@@ -34,7 +34,7 @@
 
 ![](./assets/Screenshot_01.png)
 
-![](./assets/Screenshot_01.png)
+![](./assets/Screenshot_02.png)
 
 ## نصب و راه‌اندازی — گام به گام
 

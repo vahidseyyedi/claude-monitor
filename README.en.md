@@ -35,7 +35,7 @@ No data ever leaves your machine — everything is fully local.
 
 ![](./assets/Screenshot_01.png)
 
-![](./assets/Screenshot_01.png)
+![](./assets/Screenshot_02.png)
 
 ## Installation — Step by Step
 
