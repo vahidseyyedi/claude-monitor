@@ -1,3 +1,5 @@
+EN | [FA](./README.md) 
+
 # Claude Monitor
 
 A local dashboard for tracking usage of multiple free-tier Claude (claude.ai) accounts in one place. The project has two parts:
