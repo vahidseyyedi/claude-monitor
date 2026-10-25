@@ -214,12 +214,14 @@ async function report() {
         warn('fetchFullConversation خطا داد:', e.message);
         return null;
       });
-      if (!convo) {
-        warn('conversation fetch خالی برگشت (شاید 404 یا خطای شبکه)');
+      if (!convo || !Array.isArray(convo.chat_messages)) {
+        // مهم: اینجا messages رو null می‌ذاریم (نه []) تا سرور تاریخچه‌ی ذخیره‌شده رو پاک نکنه.
+        warn('conversation fetch خالی/نامعتبر برگشت (شاید 404 یا خطای شبکه)؛ تاریخچه‌ی این چت ارسال نمیشه');
+      } else {
+        messages = extractMessages(convo);
+        const totalTokens = messages.reduce((sum, m) => sum + (m.tokens || 0), 0);
+        log(`تعداد پیام‌های استخراج‌شده از این چت: ${messages.length}, مجموع توکن تخمینی: ${totalTokens}`);
       }
-      messages = extractMessages(convo);
-      const totalTokens = messages.reduce((sum, m) => sum + (m.tokens || 0), 0);
-      log(`تعداد پیام‌های استخراج‌شده از این چت: ${messages.length}, مجموع توکن تخمینی: ${totalTokens}`);
     } else {
       log('توی این صفحه conversationId نیست (صفحه‌ی چت باز نیست)، messages ارسال نمیشه');
     }
