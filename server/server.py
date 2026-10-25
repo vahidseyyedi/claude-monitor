@@ -11,12 +11,26 @@ import re
 import html as htmllib
 import http.server
 import socketserver
+import sys
 import uuid as uuidlib
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 
-DB_PATH = os.path.join(os.path.dirname(__file__), "status.json")
+DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "status.json")
 PORT = 8765
+
+
+def make_streams_utf8():
+    """On Windows, stdout/stderr redirected to a file (what a background launcher does)
+    use the ANSI code page, e.g. cp1252, which cannot encode the Persian startup
+    message: the server would crash before serving anything. Force UTF-8 and never
+    fail on unencodable text. (pythonw.exe has no console at all: the streams are None.)"""
+    for stream in (sys.stdout, sys.stderr):
+        if stream is not None and hasattr(stream, "reconfigure"):
+            try:
+                stream.reconfigure(encoding="utf-8", errors="replace")
+            except (ValueError, OSError):
+                pass
 
 
 def load_db():
@@ -1953,6 +1967,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
+    make_streams_utf8()
     with socketserver.TCPServer(("localhost", PORT), Handler) as httpd:
         print(f"سرور روشن شد: http://localhost:{PORT}")
         httpd.serve_forever()

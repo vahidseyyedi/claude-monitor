@@ -79,12 +79,13 @@ This label is only used to tell accounts apart on your dashboard and is never se
 
 #### Option B) Windows
 
-1. Place the `install.bat` file (included with this package) in the project's root folder, next to the `server` folder.
-2. Double-click it to run (running as administrator is usually not required).
-3. This creates a **Claude Monitor** shortcut on your desktop.
-4. From now on, double-clicking that shortcut silently starts the server (no visible black console window) and opens the dashboard in your default browser.
+1. Double-click `install.bat` (it lives in the project's root folder, next to the `server` folder). Administrator rights are not needed.
+2. It finds your Python 3 and creates a **Claude Monitor** shortcut on your Desktop and in the Start Menu.
+3. From now on, double-clicking that shortcut starts the server hidden in the background (no console window) and opens the dashboard in your default browser.
+4. Server logs are written to `%TEMP%\claude-monitor.log`.
+5. To stop the background server, run `python launcher.pyw --stop` in the project folder (or end `python.exe` in Task Manager).
 
-> Windows prerequisite: Python must be installed with the **Add python.exe to PATH** option enabled during setup. Check with `python --version` in Command Prompt.
+> Windows prerequisite: Python 3.8+ from [python.org](https://www.python.org/downloads/). "Add python.exe to PATH" is not required (the installer also finds it through the `py` launcher), but on a PC without Python, Windows 10/11 may offer a Microsoft Store shortcut for `python` — that is only a stub and is not enough. Check with `py -3 --version`.
 
 #### Option C) Run manually (any OS)
 

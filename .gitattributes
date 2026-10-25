@@ -1,0 +1,7 @@
+# cmd.exe misparses LF-only batch files (labels, goto, line continuations),
+# and a CRLF shebang script breaks on Linux. Pin both explicitly.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.sh  text eol=lf
+*.py  text eol=lf
+*.pyw text eol=lf
